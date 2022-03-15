@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Bubble sort implementation for arraylist
+ * Worst case and average case complexity is o(n2)
  */
 @Slf4j
 public class BubbleSort implements Sort{
@@ -14,12 +15,12 @@ public class BubbleSort implements Sort{
         for(int pass = 1 ; pass < elements.size(); pass ++){
             //After each pass we are sorting the last element in the list
             //We can optimize by skipping those elements in the next pass
-            for(int i = 0 ; i < elements.size()-pass; i++ ){
+            for(int i = 0 ; i < elements.size() - pass; i++ ){
                 if (elements.get(i) > elements.get(i+1)){
                     swap(elements, i , i+1);
                 }
             }
-            log.info("pass" + pass);
+            log.info("Pass {}", pass);
         }
 
         return elements;
