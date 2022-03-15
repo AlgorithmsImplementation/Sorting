@@ -15,12 +15,21 @@ public class BubbleSort implements Sort{
         for(int pass = 1 ; pass < elements.size(); pass ++){
             //After each pass we are sorting the last element in the list
             //We can optimize by skipping those elements in the next pass
+            boolean alreadySorted = true;
             for(int i = 0 ; i < elements.size() - pass; i++ ){
                 if (elements.get(i) > elements.get(i+1)){
+                    //we can further optimize here by checking if there is any swap if there are no swaps
+                    // that means the array is already sorted
                     swap(elements, i , i+1);
+                    alreadySorted = false;
                 }
             }
+
             log.info("Pass {}", pass);
+
+            if(alreadySorted) {
+                break;
+            }
         }
 
         return elements;
