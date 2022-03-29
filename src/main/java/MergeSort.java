@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ * Merge sort implementation
+ * worstCase O(nlogn)
+ */
 public class MergeSort implements Sort{
     @Override
     public ArrayList<Integer> sortElements(ArrayList<Integer> elements) {
