@@ -29,8 +29,8 @@ public class MergeSort implements Sort{
         ArrayList<Integer> leftArray = new ArrayList<>();
         ArrayList<Integer> rightArray = new ArrayList<>();
 
-        //Copy the elements to left from o to mid-1
-        //Copy the elements to right from mid to length-1;
+        //Copy the elements to left from 0 to mid
+        //Copy the elements to right from mid to length;
         for(int i = 0; i < mid; i++){
             leftArray.add(elements.get(i));
         }
