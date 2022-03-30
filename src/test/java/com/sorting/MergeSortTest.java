@@ -1,10 +1,12 @@
+package com.sorting;
+
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
 @Slf4j
-class SelectionSortTest {
+class MergeSortTest {
     @Test
     public void sortElementsTest(){
         ArrayList unsorted = new ArrayList();
@@ -20,8 +22,8 @@ class SelectionSortTest {
         log.info("size {}", unsorted.size());
 
 
-        SelectionSort selectionSort = new SelectionSort();
-        selectionSort.sortElements(unsorted);
+        MergeSort mergeSort = new MergeSort();
+        mergeSort.sortElements(unsorted);
 
         unsorted.forEach(a -> log.info(a.toString()));
     }
@@ -41,8 +43,8 @@ class SelectionSortTest {
         log.info("size {}", unsorted.size());
 
 
-        SelectionSort selectionSort = new SelectionSort();
-        selectionSort.sortElements(unsorted);
+        MergeSort mergeSort = new MergeSort();
+        mergeSort.sortElements(unsorted);
 
         unsorted.forEach(a -> log.info(a.toString()));
     }

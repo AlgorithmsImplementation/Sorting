@@ -1,11 +1,12 @@
+package com.sorting;
+
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
 @Slf4j
-class InsertionSortTest {
-
+class QuickSortTest {
     @Test
     public void sortElementsTest(){
         ArrayList unsorted = new ArrayList();
@@ -21,8 +22,8 @@ class InsertionSortTest {
         log.info("size {}", unsorted.size());
 
 
-        InsertionSort insertionSort = new InsertionSort();
-        insertionSort.sortElements(unsorted);
+        QuickSort quickSort = new QuickSort();
+        quickSort.sortElements(unsorted);
 
         unsorted.forEach(a -> log.info(a.toString()));
     }
@@ -42,10 +43,9 @@ class InsertionSortTest {
         log.info("size {}", unsorted.size());
 
 
-        InsertionSort insertionSort = new InsertionSort();
-        insertionSort.sortElements(unsorted);
+        QuickSort quickSort = new QuickSort();
+        quickSort.sortElements(unsorted);
 
         unsorted.forEach(a -> log.info(a.toString()));
     }
-
 }
