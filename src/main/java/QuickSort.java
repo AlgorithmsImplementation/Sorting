@@ -34,6 +34,7 @@ public class QuickSort implements Sort{
      */
     private int partition(ArrayList<Integer> elements, int start, int end){
 
+        //here instead of end we can choose a random number
         int pivot = elements.get(end);
         int partitionIndex = start;
 
