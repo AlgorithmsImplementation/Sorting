@@ -12,9 +12,13 @@ class LinkedListTest {
         linkedList.insertFirst(10);
         linkedList.insertFirst(5);
         linkedList.insertLast(100);
+        linkedList.display();
         linkedList.insert(50, 3);
+        linkedList.display();
         linkedList.deleteFirst();
+        linkedList.display();
         linkedList.deleteLast();
+        linkedList.display();
         linkedList.delete(2);
         linkedList.display();
     }

@@ -82,6 +82,30 @@ public class LinkedList {
         size++;
     }
 
+    public void insertRec(int val, int index){
+        head = insertRec(val, index, head);
+    }
+
+    /**
+     * Insert using recursion
+     *
+     * @param val
+     * @param index
+     * @param node
+     * @return
+     */
+    private Node insertRec(int val, int index, Node node){
+        if(index==0){
+            Node temp = new Node(val, node.getNext());
+            size++;
+            return temp;
+        }
+
+        node.setNext(insertRec(val, index--, node.getNext()));
+
+        return node;
+    }
+
     /**
      * Delete from head
      *
