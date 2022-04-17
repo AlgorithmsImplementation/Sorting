@@ -18,6 +18,11 @@ public class LinkedList {
         return size;
     }
 
+    /**
+     * Insert at the firstIndex of linkedList
+     *
+     * @param val
+     */
     public void insertFirst(int val){
         Node node = new Node(val);
         node.setNext(head);
@@ -31,6 +36,11 @@ public class LinkedList {
         size++;
     }
 
+    /**
+     * Insert at the lastIndex of linkedList
+     *
+     * @param val
+     */
     public void insertLast(int val){
         if(tail==null){
             insertFirst(val);
@@ -43,6 +53,12 @@ public class LinkedList {
         size++;
     }
 
+    /**
+     * Insert at a position of linkedList
+     *
+     * @param val
+     * @param index
+     */
     public void insert(int val, int index){
 
         if(index==0){
@@ -66,6 +82,11 @@ public class LinkedList {
         size++;
     }
 
+    /**
+     * Delete from head
+     *
+     * @return
+     */
     public int deleteFirst(){
         int val = head.getVal();
         head = head.getNext();
@@ -78,6 +99,11 @@ public class LinkedList {
         return val;
     }
 
+    /**
+     * Delete from tail
+     *
+     * @return
+     */
     public int deleteLast(){
         if(size<=1){
             deleteFirst();
@@ -91,6 +117,12 @@ public class LinkedList {
         return val;
     }
 
+    /**
+     * Delete at position
+     *
+     * @param index
+     * @return
+     */
     public int delete(int index){
         if(index==0){
             return deleteFirst();
@@ -108,6 +140,12 @@ public class LinkedList {
         return val;
     }
 
+    /**
+     * Read node at position
+     *
+     * @param index
+     * @return
+     */
     public Node get(int index){
         Node node = head;
 
@@ -118,6 +156,9 @@ public class LinkedList {
         return node;
     }
 
+    /**
+     * Print the linkedList
+     */
     public void display(){
         Node temp = head;
 
