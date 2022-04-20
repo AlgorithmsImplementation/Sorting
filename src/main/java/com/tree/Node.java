@@ -1,8 +1,11 @@
 package com.tree;
 
+import lombok.ToString;
+
 /**
  * Binary tree node
  */
+@ToString
 public class Node {
     int val;
 

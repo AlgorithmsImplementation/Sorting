@@ -2,6 +2,8 @@ package com.tree;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Stack;
+
 /**
  * BinarySearch Tree implementation
  */
@@ -15,6 +17,36 @@ public class BinarySearchTree {
 
     public BinarySearchTree(Node rootNode) {
         this.rootNode = rootNode;
+    }
+
+    public Node insertNode(int data){
+        Node node = new Node(data);
+
+        if(rootNode == null){
+            rootNode = node;
+            return rootNode;
+        }
+
+        Node prev = null;
+        Node temp = rootNode;
+
+        while(temp !=null){
+            if(temp.val > data){
+                prev = temp;
+                temp = temp.left;
+            }else{
+                prev = temp;
+                temp = temp.right;
+            }
+        }
+
+        if(prev.val > data){
+            prev.left = node;
+        }else {
+            prev.right = node;
+        }
+
+        return rootNode;
     }
 
     public Node insert(int data){
@@ -48,5 +80,85 @@ public class BinarySearchTree {
             inOrderRec(rootNode.left);
             inOrderRec(rootNode.right);
         }
+    }
+
+    public void inOrderStack(){
+        if(rootNode == null){
+            log.info("Empty Tree");
+        }
+
+        Stack<Node> stack = new Stack<>();
+        Node tmp = rootNode;
+
+        while(tmp!=null){
+
+        }
+    }
+
+    public Node findMin(Node rootNode){
+        if(rootNode == null){
+            return new Node(-1);
+        }
+
+        Node minNode = rootNode;
+        while(minNode.left != null){
+            minNode = minNode.left;
+        }
+
+        return minNode;
+    }
+
+    public Node findMinRec(Node rootNode){
+        if(rootNode == null){
+            return new Node(-1);
+        }
+
+        if(rootNode.left == null){
+            return rootNode;
+        }
+
+        return findMinRec(rootNode.left);
+    }
+
+    public Node findMaxRec(Node rootNode){
+        if(rootNode == null){
+            return new Node(-1);
+        }
+
+        if(rootNode.right == null){
+            return rootNode;
+        }
+
+        return findMaxRec(rootNode.right);
+    }
+
+    public Node findMax(Node rootNode){
+        if(rootNode == null){
+            return new Node(-1);
+        }
+
+        Node maxNode = rootNode;
+        while(maxNode.right!=null){
+            maxNode = maxNode.right;
+        }
+
+        return maxNode;
+    }
+
+    /**
+     * Calculate the height of the tree
+     * @param rootNode
+     * @return
+     */
+    public int findHeight(Node rootNode){
+
+        if(rootNode== null){
+            return -1;
+        }
+
+        int leftHeight = findHeight(rootNode.left);
+        int rightHeight = findHeight(rootNode.right);
+
+        return Math.max(leftHeight, rightHeight) + 1 ;
     }
 }
