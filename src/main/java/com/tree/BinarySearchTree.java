@@ -1,8 +1,11 @@
 package com.tree;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * BinarySearch Tree implementation
  */
+@Slf4j
 public class BinarySearchTree {
     private Node rootNode;
 
@@ -33,5 +36,17 @@ public class BinarySearchTree {
         }
 
         return rootNode;
+    }
+
+    public void inOrder(){
+        inOrderRec(rootNode);
+    }
+
+    private void inOrderRec(Node rootNode){
+        if(rootNode!=null){
+            log.info("Val: {}", rootNode.val);
+            inOrderRec(rootNode.left);
+            inOrderRec(rootNode.right);
+        }
     }
 }

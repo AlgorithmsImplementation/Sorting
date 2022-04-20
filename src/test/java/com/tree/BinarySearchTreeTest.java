@@ -13,6 +13,7 @@ class BinarySearchTreeTest {
         binarySearchTree.insert(2);
         binarySearchTree.insert(15);
 
+        binarySearchTree.inOrder();
     }
 
 }
