@@ -2,6 +2,8 @@ package com.tree;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -160,5 +162,58 @@ public class BinarySearchTree {
         int rightHeight = findHeight(rootNode.right);
 
         return Math.max(leftHeight, rightHeight) + 1 ;
+    }
+
+    /**
+     * Level order traversal of the tree
+     *
+     * @param rootNode
+     */
+    public void levelOrderTraversal(Node rootNode){
+        Queue<Node> queue = new LinkedList();
+        queue.add(rootNode);
+
+        while(!queue.isEmpty()){
+            rootNode = queue.poll();
+
+            log.info("Val: {}", rootNode);
+            if(rootNode.left!=null){
+                queue.add(rootNode.left);
+            }
+
+            if(rootNode.right!=null){
+                queue.add(rootNode.right);
+            }
+        }
+    }
+
+    public void preOrderTraversal(Node rootNode){
+        if(rootNode==null){
+            return;
+        }
+
+        log.info("Val : {}", rootNode);
+        preOrderTraversal(rootNode.left);
+        preOrderTraversal(rootNode.right);
+    }
+
+    public void inOrderTraversal(Node rootNode){
+        if(rootNode==null){
+            return;
+        }
+
+        inOrderTraversal(rootNode.left);
+        log.info("Val : {}", rootNode);
+        inOrderTraversal(rootNode.right);
+    }
+
+    public void postOrderTraversal(Node rootNode){
+        if(rootNode==null){
+            return;
+        }
+
+        postOrderTraversal(rootNode.left);
+        postOrderTraversal(rootNode.right);
+        log.info("Val : {}", rootNode);
     }
 }

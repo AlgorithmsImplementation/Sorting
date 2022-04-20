@@ -23,6 +23,22 @@ class BinarySearchTreeTest {
         log.info("Max : {}", binarySearchTree.findMaxRec(rootNode));
 
         log.info("Height : {}", binarySearchTree.findHeight(rootNode));
+
+        binarySearchTree.levelOrderTraversal(rootNode);
+    }
+
+    @Test
+    public void traversalTest(){
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        binarySearchTree.insert(10);
+        binarySearchTree.insert(5);
+        binarySearchTree.insert(100);
+        binarySearchTree.insert(2);
+        Node rootNode = binarySearchTree.insert(15);
+
+        binarySearchTree.preOrderTraversal(rootNode);
+        binarySearchTree.inOrderTraversal(rootNode);
+        binarySearchTree.postOrderTraversal(rootNode);
     }
 
 }
