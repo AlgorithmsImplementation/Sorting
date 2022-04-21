@@ -2,43 +2,20 @@ package com.tree;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-
 @Slf4j
 class BinarySearchTreeTest {
 
     @Test
-    public void insertTest(){
+    public void isBSTTest(){
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.insert(10);
+        binaryTree.insert(5);
+        binaryTree.insert(100);
+        binaryTree.insert(2);
+        Node rootNode = binaryTree.insert(15);
+
         BinarySearchTree binarySearchTree = new BinarySearchTree();
-        binarySearchTree.insert(10);
-        binarySearchTree.insert(5);
-        binarySearchTree.insert(100);
-        binarySearchTree.insert(2);
-        Node rootNode = binarySearchTree.insert(15);
-
-        binarySearchTree.inOrder();
-
-        log.info("Min : {}", binarySearchTree.findMin(rootNode));
-        log.info("Min : {}", binarySearchTree.findMinRec(rootNode));
-        log.info("Max : {}", binarySearchTree.findMax(rootNode));
-        log.info("Max : {}", binarySearchTree.findMaxRec(rootNode));
-
-        log.info("Height : {}", binarySearchTree.findHeight(rootNode));
-
-        binarySearchTree.levelOrderTraversal(rootNode);
-    }
-
-    @Test
-    public void traversalTest(){
-        BinarySearchTree binarySearchTree = new BinarySearchTree();
-        binarySearchTree.insert(10);
-        binarySearchTree.insert(5);
-        binarySearchTree.insert(100);
-        binarySearchTree.insert(2);
-        Node rootNode = binarySearchTree.insert(15);
-
-        binarySearchTree.preOrderTraversal(rootNode);
-        binarySearchTree.inOrderTraversal(rootNode);
-        binarySearchTree.postOrderTraversal(rootNode);
+        log.info("isBinary: {}", binarySearchTree.isBST(rootNode));
     }
 
 }
