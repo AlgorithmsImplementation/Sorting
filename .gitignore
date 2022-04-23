@@ -27,3 +27,4 @@ hs_err_pid*
 target/
 
 /interview-prep.iml
+/dependency-reduced-pom.xml
