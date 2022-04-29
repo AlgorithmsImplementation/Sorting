@@ -2,21 +2,47 @@ package com.string;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
+
 @Slf4j
 public class Subsequence {
 
-    public void subSequence(String value){
-        subSequence("", value);
+    public ArrayList<String> subSequence(String value){
+        ArrayList<String> output = new ArrayList<>();
+        subSequence("", value, output);
+
+        return output;
     }
-    public void subSequence(String processed, String unprocessed){
+
+    public ArrayList<String> subSequenceAscii(String value){
+        ArrayList<String> output = new ArrayList<>();
+        subSequenceAscii("", value, output);
+
+        return output;
+    }
+
+    public void subSequenceAscii(String processed, String unprocessed, ArrayList<String> subSequence){
         if(unprocessed.isEmpty()){
-            log.info(processed);
+            subSequence.add(processed);
             return;
         }
 
         char ch = unprocessed.charAt(0);
-        subSequence(processed+ch, unprocessed.substring(1));
-        subSequence(processed, unprocessed.substring(1));
+        subSequence(processed+ch, unprocessed.substring(1), subSequence);
+        subSequence(processed+(ch+0), unprocessed.substring(1), subSequence);
+        subSequence(processed, unprocessed.substring(1), subSequence);
+    }
+
+
+    public void subSequence(String processed, String unprocessed, ArrayList<String> subSequence){
+        if(unprocessed.isEmpty()){
+            subSequence.add(processed);
+            return;
+        }
+
+        char ch = unprocessed.charAt(0);
+        subSequence(processed+ch, unprocessed.substring(1), subSequence);
+        subSequence(processed, unprocessed.substring(1), subSequence);
     }
 
 
