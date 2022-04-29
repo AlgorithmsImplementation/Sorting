@@ -18,12 +18,17 @@ class RecursionTest {
         assertEquals(-321, recursion.reverseInteger(-123));
 
         assertEquals(-321, recursion.reverse(-123));
-
     }
 
     @Test
     public void countZeros(){
         assertEquals(3, recursion.zeroCount(3000));
+    }
+
+    @Test
+    public void fibonacciTest(){
+        // 1 1 2 3 5 8
+        assertEquals(5, recursion.fibonacci(5));
     }
 
 }
