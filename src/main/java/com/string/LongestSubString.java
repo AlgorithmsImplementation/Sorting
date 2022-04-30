@@ -5,6 +5,13 @@ import java.util.Set;
 
 public class LongestSubString {
 
+    /**
+     * Basic idea is to move the left pointer when we encounter a duplicate
+     * till we remove that duplicate from the set and keep going and calculate
+     * the max
+     * @param s
+     * @return
+     */
     public int lengthOfLongestSubstring(String s) {
 
         if(s.isEmpty()){
