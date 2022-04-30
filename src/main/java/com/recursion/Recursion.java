@@ -1,6 +1,11 @@
 package com.recursion;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Recursion {
+
+    Map<Integer, Integer> cache = new HashMap<>(Map.of(0, 0, 1, 1));
 
     public int findSum(int n){
         if(n==0){
@@ -11,15 +16,13 @@ public class Recursion {
     }
 
     public int fibonacci(int n){
-        if(n<=0){
-            return 0;
+
+        if(cache.containsKey(n)){
+            return cache.get(n);
         }
 
-        if(n==1 || n==2){
-            return 1;
-        }
-
-        return fibonacci(n-1) + fibonacci(n-2);
+        cache.put(n, fibonacci(n-1) + fibonacci(n-2));
+        return cache.get(n);
     }
 
     public int reverse(int n, int base){
